@@ -10,3 +10,29 @@
     color: white;
   }
 }
+
+.alert-info {
+  padding: 1em;
+  margin-bottom: 1em;
+  border: 1px solid #d1e7dd;
+  border-radius: 0.375em;
+  background-color: #d1e7dd;
+  color: #0f5132;
+  font-size: 1em;
+  text-align: center;
+
+  h2 {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-size: 1.25em;
+  }
+
+  a {
+    color: #0f5132;
+    text-decoration: underline;
+
+    &:hover {
+      color: #0b4238;
+    }
+  }
+}
