@@ -2,10 +2,37 @@
 
   <header class="page-header">
     <h1>Order #<%= @order.id %></h1>
+    <p>Email: <%= @order.email %></p>
   </header>
 
   <div class="order-summary jumbotron">
     <h4>Thank you for your order!</h4>
+  </div>
+
+  <div class="order-details">
+    <h2>Order Details</h2>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Description</th>
+          <th>Quantity</th>
+          <th>Unit Price</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @order.line_items.each do |line_item| %>
+          <%= render partial: 'line_item', locals: { line_item: line_item } %>
+        <% end %>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th colspan="4">Order Total:</th>
+          <th><%= humanized_money_with_symbol @order.total_cents / 100.0 %></th>
+        </tr>
+      </tfoot>
+    </table>
   </div>
 
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
