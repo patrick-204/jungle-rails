@@ -5,7 +5,12 @@ RSpec.describe Product, type: :model do
     
     before do
       @category = Category.create(name: "Succulents")
-      @product = Product.new(name: "Test Product", price_cents: 1000, quantity: 5, category: @category)
+      @product = Product.new(
+        name: "Test Product", 
+        price_cents: 1000, 
+        quantity: 5, 
+        category: @category
+        )
     end
 
     it 'saves successfully with all four fields set' do
